@@ -3,7 +3,7 @@ pipeline {
     stages {
       stage ('Build') {
         steps {
-          archiveArtifacts artifacts: 'dist/angularwsbam.zip'
+          archiveArtifacts artifacts: 'dist/angularwsbam.jar'
           }
         }
     }
