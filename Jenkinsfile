@@ -1,23 +1,8 @@
 pipeline {
     agent any
-    environment {
-        PATH = "C:\dev\apache-maven-3.6.3\bin:$PATH
-    }
-    stages {
-        stage('clean') {
+    stage('BUILD') {
             steps {
-                sh 'mvn clean'
+                sh 'mvn clean package -Dmaven.test.skip=true'
             }
         }
-        stage('compile') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
-        stage('BUIL') {
-            steps {
-                sh 'mvn package -Dmaven.test.skip=true'
-            }
-        }
-    }   
-}
+    } 
