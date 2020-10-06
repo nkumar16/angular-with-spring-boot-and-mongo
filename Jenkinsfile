@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps{
-                   git credentialsId: 'nkumar16' , url: 'https://github.com/nkumar16/angular-with-spring-boot-and-mongo'
+                   git url: 'https://github.com/nkumar16/angular-with-spring-boot-and-mongo'
             }
         }
         stage('Maven Build'){
