@@ -1,16 +1,21 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Git Checkout') {
-            steps{
-                   git url: 'https://github.com/nkumar16/angular-with-spring-boot-and-mongo'
+        stage('clean') {
+            steps {
+                sh 'mvn clean'
             }
         }
-        stage('Maven Build'){
-            steps{
-                sh 'mvn package -Dmaven.Test.Skip=true'
+        stage('compile') {
+            steps {
+                sh 'mvn compile'
             }
         }
-    }
+        stage('package') {
+            steps {
+                sh 'mvn package -Dmaven.test.skip=true'
+            }
+        }
+    }   
 }
-        
