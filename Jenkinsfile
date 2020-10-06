@@ -1,8 +1,10 @@
-pipeline {
+pipeline{
     agent any
-    stage('BUILD') {
+    stages {
+        stage ('BUILD') {
             steps {
-                sh 'mvn clean package -Dmaven.test.skip=true'
+                sh "mvn clean package -Dmaven.test.skip=true"
             }
         }
     } 
+}
