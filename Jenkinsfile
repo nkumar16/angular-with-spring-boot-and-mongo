@@ -6,7 +6,9 @@ pipeline {
     }
     stages {
         stage ('SCM Checkout') {
+            steps {
             git 'https://github.com/nkumar16/angular-with-spring-boot-and-mongo'
+        }
         }
         stage ('compile-package') {
             steps {
