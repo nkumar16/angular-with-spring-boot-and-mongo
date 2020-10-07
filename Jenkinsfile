@@ -2,10 +2,10 @@ pipeline {
     agent any
     
   stages {
-      stage('SCM Checkout'){
+      stage ('SCM Checkout') {
            git 'https://github.com/nkumar16/angular-with-spring-boot-and-mongo'
            }
-      stage('compile-package') {
+      stage ('compile-package') {
          steps {
             bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
