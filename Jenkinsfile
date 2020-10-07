@@ -6,8 +6,8 @@ pipeline {
          steps {
             // Get some code from a GitHub repository
             git 'https://github.com/nkumar16/angular-with-spring-boot-and-mongo/'
-            // Run Maven on a Unix agent.
-            bat "./mvnw -Dmaven.test.failure.ignore=true clean package"
+            withMaven(maven : 'apache-maven-3.6.1') {
+                bat'mvn clean compile'
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
          }
