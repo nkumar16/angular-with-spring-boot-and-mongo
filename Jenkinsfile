@@ -1,4 +1,4 @@
-node {
+pipeline {
     agent any
     
   stages {
@@ -7,7 +7,7 @@ node {
            }
       stage('compile-package') {
          steps {
-            sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
          post {
             // If Maven was able to run the tests, even if some of the test
