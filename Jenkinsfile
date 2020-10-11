@@ -12,7 +12,7 @@ pipeline {
         }
         stage ('compile-package') {
             steps {
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post {
             // If Maven was able to run the tests, even if some of the test
