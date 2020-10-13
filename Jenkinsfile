@@ -25,7 +25,7 @@ pipeline {
       }
 	    stage ('copy artifact') {
 	        steps {
-		sh "scp /var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar jenkins@192.168.56.105:/home/jenkins/Desktop/testfiles && ssh jenkins@192.168.56.105 <<'ENDSSH'"
+		sh "scp -v -o StrictHostKeyChecking=no -i /var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar jenkins@192.168.56.105:/home/jenkins/Desktop/testfiles"
 		       }
         }
     }
