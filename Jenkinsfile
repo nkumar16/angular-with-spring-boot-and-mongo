@@ -20,7 +20,7 @@ pipeline {
             success {
                junit allowEmptyResults: true, testResults: '*/target/surefire-reports/TEST-.xml'
                archiveArtifacts 'target/*.jar'
-               copyArtifacts filter: 'demo-0.0.1-SNAPSHOT.jar', projectName: 'mavenproject', selector: lastWithArtifacts(), target: '192.168.56.105/home/qam/Desktop/testfiles'
+               copyArtifacts filter: '/var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar', projectName: 'mavenproject', selector: lastWithArtifacts(), target: '192.168.56.105/home/qam/Desktop/testfiles'
             }
          }
       }
