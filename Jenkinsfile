@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'node1' }
+    agent { label ‘node1’}
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
@@ -11,14 +11,14 @@ pipeline {
         }
         }
         stage ('compile-package') {
-                steps {
+            steps {
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post {
             // If Maven was able to run the tests, even if some of the test
             // failed, record the test results and archive the jar file.
             success {
-               junit '**/target/surefire-reports/TEST-*.xml'
+               junit '*/target/surefire-reports/TEST-.xml'
                archiveArtifacts 'target/*.jar'
             }
          }
