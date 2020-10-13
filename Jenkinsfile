@@ -25,7 +25,7 @@ pipeline {
       }
 	    stage ('copy artifact') {
 	        steps {
-		sshPut remote qam@192.168.56.105, from: '/var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar', into: '/home/qam/Desktop/testfiles'
+		sshPut remote 192.168.56.105, from: '/var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar', into: '/home/qam/Desktop/testfiles'
             }
         }
     }
