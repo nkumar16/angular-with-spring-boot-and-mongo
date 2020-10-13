@@ -62,6 +62,7 @@ pipeline {
 								sourceFiles: '/var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar')], 
 								usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 		}
+		}
         }
     }
 }
