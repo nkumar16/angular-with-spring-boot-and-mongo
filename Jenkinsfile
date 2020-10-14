@@ -23,15 +23,9 @@ pipeline {
                }
          }
       }
-  stage('Remote SSH') {
-  def remote = [:]
-  remote.name = 'QA'
-  remote.host = '192.168.56.105'
-  remote.user = 'jenkins'
-  remote.password = 'Pass@jenkins'
-  remote.allowAnyHosts = true
-	  Steps {
-         	 sshGet remote: remote, from: '/var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar', into: '/home/jenkins/Desktop/testfiles/', override: true
+ 	stage ('copy artifact') {
+	steps {
+        sh "scp /var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar  qam@192.168.56.105:/home/jenkins/Desktop/testfiles/ , override: true"
 		
 	   }
 }
