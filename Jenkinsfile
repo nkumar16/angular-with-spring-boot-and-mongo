@@ -33,7 +33,7 @@ pipeline {
      	verbose: true,
      	transfers: [
       	sshTransfer(
-       	sourceFiles: "${ /var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar }",
+		sourceFiles: "${ /var/lib/jenkins/workspace/mavenproject/target}/${demo-0.0.1-SNAPSHOT.jar}",
        	removePrefix: "${ /var/lib/jenkins/workspace/mavenproject/target/ }",
        	remoteDirectory: "${ qam@192.168.56.105:/home/jenkins/Desktop/testfiles/ }",
       	execCommand: 'java -jar qam@192.168.56.105:/home/jenkins/Desktop/testfiles/demo-0.0.1-SNAPSHOT.jar', 
