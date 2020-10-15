@@ -25,7 +25,7 @@ pipeline {
       }
  	stage ('copy artifact') {
 	steps {
-        sh "scp /var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar qmaster@13.68.169.106:/home/qmaster/testfiles/"		
+        sh "scp qmaster@13.68.169.106:/home/qmaster/testfiles/ /var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar"		
 	   }
 }
    }
