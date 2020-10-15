@@ -23,25 +23,11 @@ pipeline {
                }
          }
       }
-	stage('SSH transfer') {
- 	script {
-  	sshPublisher(
-  	continueOnError: false, failOnError: true,
-   	publishers: [
-    	sshPublisherDesc(
-     	configName: "${env.SSH_CONFIG_NAME}",
-     	verbose: true,
-     	transfers: [
-      	sshTransfer(
-		sourceFiles: "${ /var/lib/jenkins/workspace/mavenproject/target}/${demo-0.0.1-SNAPSHOT.jar}",
-       	removePrefix: "${ /var/lib/jenkins/workspace/mavenproject/target/ }",
-       	remoteDirectory: "${ qam@192.168.56.105:/home/jenkins/Desktop/testfiles/ }",
-      	execCommand: 'java -jar qam@192.168.56.105:/home/jenkins/Desktop/testfiles/demo-0.0.1-SNAPSHOT.jar', 
-								execTimeout: 120000, 
-      )
-     ])
-   ])
- }
+ 	stage ('copy artifact') {
+	steps {
+        sh "scp /var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar qam@192.168.56.105:/home/qam/Desktop/testfiles/ , override: true"
+		
+	   }
 }
-}
+   }
 }
