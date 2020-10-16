@@ -22,11 +22,15 @@ pipeline {
                archiveArtifacts 'target/*.jar'
                }
          }
-      }
- 	stage ('copy artifact') {
-	steps {
-        sh "scp -t qmaster@13.68.169.106:/home/qmaster/testfiles/ /var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar"		
-	   }
-}
+      } 
+    def remote = [:]
+    remote.name = 'qmaster'
+    remote.host = 'qmaster@40.87.87.3'
+    remote.user = 'qmaster'
+    remote.password = 'Pass@jenkins'
+    remote.allowAnyHosts = true
+    stage('Remote SSH') {
+        sshPut remote: remote, from: '/var/lib/jenkins/workspace/mavenproject/target/demo-0.0.1-SNAPSHOT.jar', into: 'qmaster@40.87.87.3:/home/qmaster/testfiles/'
+    }
    }
-}
+   }
