@@ -23,7 +23,7 @@ pipeline {
                }
          }
       } 
-       stage('Remote SSH') {
+       stage ('Remote SSH') {
      def remote = [:]
     remote.name = 'qmaster'
     remote.host = 'qmaster@40.87.87.3'
